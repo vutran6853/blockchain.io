@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Router from './route';
+import Route from './route';
 import { HashRouter } from 'react-router-dom';
 import NavBar from './components/navbar/navBar';
 
@@ -9,7 +9,7 @@ class App extends Component {
       <HashRouter>
         <div className="App">
           <NavBar/>
-            { Router }
+            { Route }
         </div>
       </HashRouter>
     );
