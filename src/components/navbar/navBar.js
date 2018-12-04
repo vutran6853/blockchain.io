@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
+import './navbar.css'
 
 let navBar = () => {
   return(
-    <div>
+    <div className='navBarBox'>
       <Link to='/'>
-        <button>Home</button>
+        <Button>Home</Button>
       </Link>
       <Link to='/'>
-        <button>Wallet</button>
+        <Button>Wallet</Button>
       </Link>
       <Link to='/'>
-        <button>Data</button>
+        <Button>Data</Button>
       </Link>
     </div>
   )  
