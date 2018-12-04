@@ -24,7 +24,7 @@ class DashBoard extends Component {
   handleSubmitData() {
     let { userInputData } = this.state
     let checkString = userInputData[0] + userInputData[1] + userInputData[2] + userInputData[3]
-    console.log(userInputData.length);
+    // console.log(userInputData.length);
     if(userInputData.length === 64 && checkString === '0000') {
       axios.get(`/api/getSingleBlock/${ userInputData }`)
       .then(this.props.history.push('/result/singleBlock'))
@@ -59,26 +59,15 @@ class DashBoard extends Component {
 
   render() {
     return (
-      <Container fluid className='dashBoardBox'>
-        <Row>
-          <Col xs='6'>
-            <Input placeholder='You can search for things like...Address, Transaction, Block, or Hash' onChange={ (e) => this.handleUserInput(e.target.value) }></Input>
-
+      <Container fluid>
+        <Row id='searchBox'>
+          <Input placeholder='Search for things like...Address, Transaction, Block, or Hash' onChange={ (e) => this.handleUserInput(e.target.value) }></Input>
+          <Button color='primary' block onClick={ () => this.handleSubmitData() }>Search</Button>     
+          <Col id='pBox'>
+            <p>Or</p>
           </Col>
-          <Button onClick={ () => this.handleSubmitData() }>Go</Button>
-
+          <Button color='primary' block onClick={ () => this.getLatestBlock() }>Latest block</Button>        
         </Row>
-        <Row>
-          <Col xs='6'>
-          <p>You can search for things like...Address, Transaction, Block, or Hash</p>
-
-          </Col>
-
-        </Row>
-
-          <Button onClick={ () => this.getLatestBlock() }>Latest block</Button>
-
-        
       </Container>
     );
   }

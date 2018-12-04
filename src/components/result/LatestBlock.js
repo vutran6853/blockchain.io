@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Table, Container } from 'reactstrap';
 
 class LatestBlock extends Component {
   constructor(props) {
@@ -12,45 +13,52 @@ class LatestBlock extends Component {
   componentDidMount() {
     axios.get('/api/getResult')
     .then((response) => {
-      // console.log(response.data)
       this.setState({ blockData: response.data });
     })
     .catch((error) => {
       console.log(`Danger! ${ error }`)
     });
-
-
   }
 
-
-
   render() {
-    let { blockData, hashData, inputsData, outputsData, transactionIndexData } = this.state;
-    console.log('blockData:', blockData);
-
+    let { blockData } = this.state;
 
     let displayLatestBlock = blockData.map((value, index) => {
-      console.log(value, index)
+      // console.log(value, index)
       return(
         <div>
-          <p>block index: { value.block_index }</p>
-          <p>hash: { value.hash }</p>
-          <p>height: { value.height }</p>
-          <p>time: { value.time }</p>
-
+          <Table bordered hover>
+            <thead>
+              <tr>
+                <th>Summary</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Block index</th>
+                <td>{ value.block_index }</td>
+              </tr>
+              <tr>
+                <th scope="row">Hash</th>
+                <td>{ value.hash }</td>
+              </tr>
+              <tr>
+                <th scope="row">Height</th>
+                <td>{ value.height }</td>
+              </tr>
+            </tbody>
+          </Table>
         </div>
       )
-    })
+    });
 
     return(
- 
-      <div>
+      <Container>
         <p>Latest Block</p>
           { displayLatestBlock }
-      </div>
+      </Container>
     )
-
-    
   }
 }
 

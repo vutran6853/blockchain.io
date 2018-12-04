@@ -13,7 +13,6 @@ class SingleAddress extends Component {
   componentDidMount() {
     axios.get('/api/getResult')
     .then((response) => {
-      console.log(response);
       this.setState({ blockData: response.data });
     })
     .catch((error) => {
@@ -21,14 +20,11 @@ class SingleAddress extends Component {
     });
   }
 
-
-
   render() {
     let { blockData } = this.state;
-    console.log('blockData:', blockData);
 
     let displayLatestBlock = blockData.map((value, index) => {
-      console.log(value, index)
+      // console.log(value, index)
       return(
         <div>
           <Table bordered hover>

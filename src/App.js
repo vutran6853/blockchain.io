@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Route from './route';
 import { HashRouter } from 'react-router-dom';
-import NavBar from './components/navbar/navBar';
-import DashBoard from './components/dashboard/DashBoard';
+import NavBar from './components/navbar/Navbar';
 
 class App extends Component {
   render() {

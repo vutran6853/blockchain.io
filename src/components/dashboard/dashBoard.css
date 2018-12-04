@@ -1,3 +1,7 @@
-.dashBoardBox {
-  border: 5px solid blue;
+#searchBox {
+  margin: 50px;
+}
+
+#pBox {
+  text-align: center;
 }

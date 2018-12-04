@@ -13,7 +13,6 @@ class SingleBlock extends Component {
   componentDidMount() {
     axios.get('/api/getResult')
     .then((response) => {
-      // console.log(response.data)
       this.setState({ blockData: response.data });
     })
     .catch((error) => {
@@ -21,13 +20,11 @@ class SingleBlock extends Component {
     });
   }
 
-
   render() {
     let { blockData } = this.state;
-    console.log('blockData:', blockData);
 
     let displaySingleBlock = blockData.map((value, index) => {
-      console.log(value, index)
+      // console.log(value, index)
       return(
         <div>
           <p>Block #{ value.height }</p>
@@ -94,13 +91,6 @@ class SingleBlock extends Component {
               </Table>
             </Col>
           </Row>
-
-          {/* <p>Block Index: { value.block_index }</p>
-
-          <p>prev block : { value.prev_block }</p>
-         
-          <p>time : { value.time }</p> */}
-
         </div>
       )
     });
@@ -111,8 +101,6 @@ class SingleBlock extends Component {
           { displaySingleBlock }
       </Container>
     )
-
-    
   }
 }
 

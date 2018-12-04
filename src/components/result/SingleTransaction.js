@@ -13,7 +13,6 @@ class SingleTransaction extends Component {
   componentDidMount() {
     axios.get('/api/getResult')
     .then((response) => {
-      // console.log(response.data)
       this.setState({ blockData: response.data });
     })
     .catch((error) => {
@@ -25,10 +24,9 @@ class SingleTransaction extends Component {
 
   render() {
     let { blockData } = this.state;
-    console.log('blockData:', blockData);
 
     let displaySingleTransctions = blockData.map((value, index) => {
-      console.log(value, index)
+      // console.log(value, index)
       return(
         <div>
           <Table bordered hover>
@@ -79,8 +77,6 @@ class SingleTransaction extends Component {
           { displaySingleTransctions }
       </Container>
     )
-
-    
   }
 }
 
